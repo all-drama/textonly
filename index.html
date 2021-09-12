@@ -1,160 +1,512 @@
 <!-- This Script is made by hiru Provided by: Hiranmoy Sarkar -->
-<script type='text/javascript' src='http://m.free-codes.org/gh.php?id=2001'></script>
-<CENTER>
+HTML Result Skip Results Iframe
 
-<FORM name="Keypad" action="">
-<TABLE>
-<B>
-<TABLE border=2 width=50 height=60 cellpadding=1 cellspacing=5>
-<TR>
-<TD colspan=3 align=middle>
-<input name="ReadOut" type="Text" size=24 value="0" width=100%>
-</TD>
-<TD
-</TD>
-<TD>
-<input name="btnClear" type="Button" value="  C  " onclick="Clear()">
-</TD>
-<TD><input name="btnClearEntry" type="Button" value="  CE " onclick="ClearEntry()">
-</TD>
-</TR>
-<TR>
-<TD>
-<input name="btnSeven" type="Button" value="  7  " onclick="NumPressed(7)">
-</TD>
-<TD>
-<input name="btnEight" type="Button" value="  8  " onclick="NumPressed(8)">
-</TD>
-<TD>
-<input name="btnNine" type="Button" value="  9  " onclick="NumPressed(9)">
-</TD>
-<TD>
-</TD>
-<TD>
-<input name="btnNeg" type="Button" value=" +/- " onclick="Neg()">
-</TD>
-<TD>
-<input name="btnPercent" type="Button" value="  % " onclick="Percent()">
-</TD>
-</TR>
-<TR>
-<TD>
-<input name="btnFour" type="Button" value="  4  " onclick="NumPressed(4)">
-</TD>
-<TD>
-<input name="btnFive" type="Button" value="  5  " onclick="NumPressed(5)">
-</TD>
-<TD>
-<input name="btnSix" type="Button" value="  6  " onclick="NumPressed(6)">
-</TD>
-<TD>
-</TD>
-<TD align=middle><input name="btnPlus" type="Button" value="  +  " onclick="Operation('+')">
-</TD>
-<TD align=middle><input name="btnMinus" type="Button" value="   -   " onclick="Operation('-')">
-</TD>
-</TR>
-<TR>
-<TD>
-<input name="btnOne" type="Button" value="  1  " onclick="NumPressed(1)">
-</TD>
-<TD>
-<input name="btnTwo" type="Button" value="  2  " onclick="NumPressed(2)">
-</TD>
-<TD>
-<input name="btnThree" type="Button" value="  3  " onclick="NumPressed(3)">
-</TD>
-<TD>
-</TD>
-<TD align=middle><input name="btnMultiply" type="Button" value="  *  " onclick="Operation('*')">
-</TD>
-<TD align=middle><input name="btnDivide" type="Button" value="   /   " onclick="Operation('/')">
-</TD>
-</TR>
-<TR>
-<TD>
-<input name="btnZero" type="Button" value="  0  " onclick="NumPressed(0)">
-</TD>
-<TD>
-<input name="btnDecimal" type="Button" value="   .  " onclick="Decimal()">
-</TD>
-<TD colspan=3>
-</TD>
-<TD>
-<input name="btnEquals" type="Button" value="  =  " onclick="Operation('=')">
-</TD>
-</TR>
-</TABLE>
-</TABLE>
-</B>
-</FORM>
-</CENTER>
-<font face="Verdana, Arial, Helvetica" size=2>
-<SCRIPT LANGUAGE="JavaScript">
-<!-- Begin
-var FKeyPad = document.Keypad;
-var Accumulate = 0;
-var FlagNewNum = false;
-var PendingOp = "";
-function NumPressed (Num) {
-if (FlagNewNum) {
-FKeyPad.ReadOut.value  = Num;
-FlagNewNum = false;
-   }
-else {
-if (FKeyPad.ReadOut.value == "0")
-FKeyPad.ReadOut.value = Num;
-else
-FKeyPad.ReadOut.value += Num;
-   }
-}
-function Operation (Op) {
-var Readout = FKeyPad.ReadOut.value;
-if (FlagNewNum && PendingOp != "=");
-else
-{
-FlagNewNum = true;
-if ( '+' == PendingOp )
-Accumulate += parseFloat(Readout);
-else if ( '-' == PendingOp )
-Accumulate -= parseFloat(Readout);
-else if ( '/' == PendingOp )
-Accumulate /= parseFloat(Readout);
-else if ( '*' == PendingOp )
-Accumulate *= parseFloat(Readout);
-else
-Accumulate = parseFloat(Readout);
-FKeyPad.ReadOut.value = Accumulate;
-PendingOp = Op;
-   }
-}
-function Decimal () {
-var curReadOut = FKeyPad.ReadOut.value;
-if (FlagNewNum) {
-curReadOut = "0.";
-FlagNewNum = false;
-   }
-else
-{
-if (curReadOut.indexOf(".") == -1)
-curReadOut += ".";
-   }
-FKeyPad.ReadOut.value = curReadOut;
-}
-function ClearEntry () {
-FKeyPad.ReadOut.value = "0";
-FlagNewNum = true;
-}
-function Clear () {
-Accumulate = 0;
-PendingOp = "";
-ClearEntry();
-}
-function Neg () {
-FKeyPad.ReadOut.value = parseFloat(FKeyPad.ReadOut.value) * -1;
-}
-function Percent () {
-FKeyPad.ReadOut.value = (parseFloat(FKeyPad.ReadOut.value) / 100) * parseFloat(Accumulate);
+<!DOCTYPE html>
 
-// End -->
-</SCRIPT
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Document</title>
+
+    <style>
+
+html, body {
+
+  height: 100%;
+
+  background: #dde1e7;
+
+  position: relative;
+
+}
+
+.icon-large {
+
+  width: 220px;
+
+  height: 220px;
+
+  border-radius: 38px;
+
+  position: absolute;
+
+  top: 50%;
+
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+
+}
+
+.icon-clock {
+
+  overflow: hidden;
+
+  background: #dde1e7;
+
+  border-radius: 50%;
+
+  box-shadow: -3px -3px 7px #ffffff73,
+
+              2px 2px 5px rgba(94, 104, 121, 0.288);
+
+}
+
+.clock {
+
+  width: 192px;
+
+  height: 192px;
+
+  border-radius: 50%;
+
+  background: #f1f1f1;
+
+  position: absolute;
+
+  top: 50%;
+
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+
+  box-shadow: inset 2px 2px 5px #babecc,
+
+              inset -5px -5px 10px #ffffff73;
+
+}
+
+.clock ol {
+
+  list-style-type: none;
+
+  width: 100%;
+
+  height: 100%;
+
+  position: relative;
+
+  margin: 0;
+
+  padding: 0;
+
+}
+
+.clock ol li {
+
+  counter-increment: labelCounter;
+
+  position: absolute;
+
+  font-size: 1.25em;
+
+}
+
+.clock ol li:before {
+
+  font-family: "Helvetica";
+
+  content: counter(labelCounter) "";
+
+}
+
+.clock ol li:nth-child(1) {
+
+  right: 55px;
+
+  top: 20px;
+
+}
+
+.clock ol li:nth-child(2) {
+
+  right: 25px;
+
+  top: 50px;
+
+}
+
+.clock ol li:nth-child(3) {
+
+  right: 12px;
+
+  top: 85px;
+
+}
+
+.clock ol li:nth-child(4) {
+
+  right: 25px;
+
+  top: 125px;
+
+}
+
+.clock ol li:nth-child(5) {
+
+  right: 55px;
+
+  top: 150px;
+
+}
+
+.clock ol li:nth-child(6) {
+
+  right: 90px;
+
+  top: 160px;
+
+}
+
+.clock ol li:nth-child(7) {
+
+  right: 125px;
+
+  top: 150px;
+
+}
+
+.clock ol li:nth-child(8) {
+
+  right: 155px;
+
+  top: 125px;
+
+}
+
+.clock ol li:nth-child(9) {
+
+  right: 165px;
+
+  top: 85px;
+
+}
+
+.clock ol li:nth-child(10) {
+
+  right: 150px;
+
+  top: 50px;
+
+}
+
+.clock ol li:nth-child(11) {
+
+  right: 120px;
+
+  top: 20px;
+
+}
+
+.clock ol li:nth-child(12) {
+
+  right: 85px;
+
+  top: 10px;
+
+}
+
+@-webkit-keyframes spin {
+
+  100% {
+
+    transform: rotate(360deg);
+
+  }
+
+}
+
+@keyframes spin {
+
+  100% {
+
+    transform: rotate(360deg);
+
+  }
+
+}
+
+#hour {
+
+  width: 14px;
+
+  height: 14px;
+
+  border-radius: 50%;
+
+  background: #303030;
+
+  position: absolute;
+
+  top: 50%;
+
+  left: 50%;
+
+  margin-top: -7px;
+
+  margin-left: -7px;
+
+}
+
+#hour:before, #hour:after {
+
+  content: "";
+
+  display: block;
+
+  position: absolute;
+
+}
+
+#hour:before {
+
+  width: 8px;
+
+  height: 65px;
+
+  border-radius: 4px;
+
+  background: #303030;
+
+  position: absolute;
+
+  bottom: 2px;
+
+  left: 50%;
+
+  transform: translate(-50%, 0);
+
+}
+
+#min {
+
+  width: 0;
+
+  height: 0;
+
+  border-radius: 50%;
+
+  background: #303030;
+
+  position: absolute;
+
+  top: 50%;
+
+  left: 50%;
+
+}
+
+#min:before, #min:after {
+
+  content: "";
+
+  display: block;
+
+  position: absolute;
+
+}
+
+#min:before {
+
+  width: 6px;
+
+  height: 90px;
+
+  border-radius: 4px;
+
+  background: #303030;
+
+  position: absolute;
+
+  bottom: 2px;
+
+  left: 50%;
+
+  transform: translate(-50%, 0);
+
+}
+
+#sec {
+
+  width: 4px;
+
+  height: 4px;
+
+  border-radius: 50%;
+
+  background: #dd3e1c;
+
+  border: 2px solid #e13e1b;
+
+  position: absolute;
+
+  top: 50%;
+
+  left: 50%;
+
+  margin-top: -4px;
+
+  margin-left: -4px;
+
+}
+
+#sec:before, #sec:after {
+
+  content: "";
+
+  display: block;
+
+  position: absolute;
+
+}
+
+#sec:before {
+
+  width: 2px;
+
+  height: 105px;
+
+  border-radius: 4px;
+
+  background: #e13e1b;
+
+  position: absolute;
+
+  bottom: -12px;
+
+  left: 50%;
+
+  transform: translate(-50%, 0);
+
+}
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="icon-large icon-clock">
+
+  <div class="clock">
+
+    <ol>
+
+      <li></li>
+
+          <li></li>
+
+          <li></li>
+
+          <li></li>
+
+          <li></li>
+
+          <li></li>
+
+        <li></li>
+
+          <li></li>
+
+          <li></li>
+
+          <li></li>
+
+          <li></li>
+
+          <li></li>
+
+    </ol>
+
+    <div id="hour"></div>
+
+    <div id="min"></div>
+
+    <div id="sec"></div>
+
+  </div>
+
+</div>
+
+<script>
+
+ 
+
+window.requestAnimFrame = (function(){
+
+  return  window.requestAnimationFrame       ||
+
+          window.webkitRequestAnimationFrame ||
+
+          window.mozRequestAnimationFrame    ||
+
+          function( callback ){
+
+              window.setTimeout(callback, 1000 / 60);
+
+          };
+
+})();
+
+//initialize the clock in a self-invoking function
+
+(function clock(){ 
+
+    var hour = document.getElementById("hour"),
+
+        min = document.getElementById("min"),
+
+        sec = document.getElementById("sec");
+
+    //set up a loop
+
+    (function loop(){
+
+        requestAnimFrame(loop);
+
+        draw();
+
+    })();
+
+    //position the hands
+
+    function draw(){
+
+        var now = new Date(),//now
+
+            then = new Date(now.getFullYear(),now.getMonth(),now.getDate(),0,0,0),//midnight
+
+            diffInMil = (now.getTime() - then.getTime()),// difference in milliseconds
+
+            h = (diffInMil/(1000*60*60)),//hours
+
+            m = (h*60),//minutes
+
+            s = (m*60);//seconds
+
+        //rotate the hands accordingly
+
+        sec.style.webkitTransform = "rotate(" + (s * 6) + "deg)";
+
+        hour.style.webkitTransform = "rotate(" + (h * 30 + (h / 2)) + "deg)";
+
+        min.style.webkitTransform = "rotate(" + (m * 6) + "deg)";
+
+    } 
+
+})();
+
+</script>
+
+</body>
+
+</html>
+
+Resources
