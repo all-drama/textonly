@@ -1,0 +1,5 @@
+export api="tblUXDsFuJKzLEJU3"
+export base='appiyvAqE5PPjQL08'
+export table="hack"
+export folder="ADM"
+[[ "${#BASH_SOURCE[@]}" -gt "1" ]] && { return 0; }
